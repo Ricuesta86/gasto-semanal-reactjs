@@ -2,11 +2,26 @@ import React, { Component } from 'react'
 
 export class Formulario extends Component {
 
-    // refs para los c~
-   crearGasto=(e)=>{
+    // refs para los campos del formulario
+    nombreGasto = React.createRef();
+    cantidadGasto = React.createRef();
+
+    crearGasto=(e)=>{
+        //Prevenir el default
         e.preventDefault();
 
-   }
+        // crear el objeto con los datos
+        const gasto={
+            nombreGasto : this.nombreGasto.current.value,
+            cantidadGasto : this.cantidadGasto.current.value
+        }
+        
+        // agregarlo y enviarlo por props
+
+        // resetear el formulario (opcional)
+        e.currentTarget.reset();
+
+    }
    
    
     render() {
@@ -15,12 +30,12 @@ export class Formulario extends Component {
                 <h2>Agrega tus gastos aqui</h2>
                 <div className="campo">
                     <label>Nombre Gasto</label>
-                    <input type="text" className="u-full-width" placeholder="Ej. Transporte" />
+                    <input type="text" ref={this.nombreGasto} className="u-full-width" placeholder="Ej. Transporte" />
                 </div>
 
                 <div className="campo">
                     <label>Cantidad</label>
-                    <input type="text" placeholder=" Ej. 300" className="u-full-width"/>
+                    <input type="text" ref={this.cantidadGasto} placeholder=" Ej. 300" className="u-full-width"/>
                 </div>
                 <input type="submit" value="Agregar" className="button-primary u-full-width"/>
             </form>
