@@ -11,12 +11,14 @@ export class Formulario extends Component {
         e.preventDefault();
 
         // crear el objeto con los datos
-        const gasto={
+        const gasto ={
             nombreGasto : this.nombreGasto.current.value,
             cantidadGasto : this.cantidadGasto.current.value
         }
+        // console.log(gasto);
         
         // agregarlo y enviarlo por props
+        this.props.agregarGasto(gasto);
 
         // resetear el formulario (opcional)
         e.currentTarget.reset();
