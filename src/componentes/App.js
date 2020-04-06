@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import Header from './Header';
 import Formulario from './Formulario';
+import Listado from './Listado';
 
 class App extends Component {
 
@@ -19,7 +20,7 @@ class App extends Component {
     // agregar el gasto al objeto del state
     gastos[`gasto${Date.now()}`]=gasto;
 
-    console.log(gastos);
+    // console.log(gastos);
     
     //ponerlo en el state 
     this.setState({
@@ -43,7 +44,9 @@ class App extends Component {
                 />
               </div>
               <div className="one-half column">
-                2
+                <Listado 
+                  gastos={this.state.gastos}
+                />
               </div>
             </div>
           </div>
