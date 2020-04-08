@@ -15,7 +15,7 @@ class App extends Component {
   // agregar un nuevo gasto el state
   agregarGasto=gasto=>{
     // tomar una copia del state actual
-    const gastos={...this.state.gasto};
+    const gastos={...this.state.gastos};
 
     // agregar el gasto al objeto del state
     gastos[`gasto${Date.now()}`]=gasto;
