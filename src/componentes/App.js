@@ -3,6 +3,7 @@ import '../css/App.css';
 import Header from './Header';
 import Formulario from './Formulario';
 import Listado from './Listado';
+import {validarPresupuesto} from '../helper'
 
 class App extends Component {
 
@@ -10,6 +11,22 @@ class App extends Component {
     presupuesto:'',
     restante:'',
     gastos:{}  
+  }
+
+  componentDidMount(){
+    this.obtenerPresupuesto()
+  }
+  obtenerPresupuesto(){
+    let presupuesto=prompt('Cual es su presupuesto para la semana?');
+    let resultado=validarPresupuesto(presupuesto);
+    if(resultado){
+      this.setState({
+        presupuesto,
+        restante:presupuesto
+      })
+    }else{
+      this.obtenerPresupuesto();
+    }
   }
 
   // agregar un nuevo gasto el state
