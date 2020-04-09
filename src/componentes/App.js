@@ -58,6 +58,8 @@ class App extends Component {
     let restante = this.state.restante;
     // restar los gasto a restante
      restante-=resta;
+    // Convertir a string
+    restante=String(restante);
     // ponerlo en el state
     this.setState({
       restante
